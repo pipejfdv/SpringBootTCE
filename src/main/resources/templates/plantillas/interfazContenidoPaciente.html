@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Paciente</title>
+</head>
+<body>
+
+    <!--Inicio de la interfaz de paciente o usuario-->
+    <div class="cotainer" th:fragment="inicioPaciente">
+        <div class="left-content">
+            <div class="activities">
+                <h1>Juegos populares</h1>
+                <div class="activity-container"><!--Contenedor de juegos de inicio-->
+
+                    <div class="image-container img-one">
+                        <a th:href="@{/v1/Plataforma/juegos/memoria/{id}(id=${datosUsuario.id_usuario})}">
+                            <img src="/imagenes/juegos/parejas/iconoMemoria.png" alt="icono juego memoria"/>
+                            <div class="overlay">
+                                <h3>Memoria</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="image-container img-two">
+                        <a th:href="@{/v1/Plataforma/juegos/torresHanoi/{id}(id=${datosUsuario.id_usuario})}">
+                            <img src="/imagenes/Interfaz_juegos/torre_hanoi.PNG" alt="icono de juego torres de hanoi"/>
+                            <div class="overlay">
+                                <h3>Hanoi</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="image-container img-three">
+                        <img src="/imagenes/Interfaz_juegos/iconoTubos.png" alt="icono del juego de splot liquid" />
+                        <div class="overlay">
+                            <h3>Splot liquid</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--"Datos personales" de la interfaz de paciente o usuario-->
+    <div class="container" th:fragment="datosPersonales" >
+        <div class="container datosPeronales" style="background: rgba(246, 247, 251, 0.63);margin: 15px;border-radius: 15px; padding: 20px;">
+            <h1>Datos personales</h1>
+
+                <div class="row mb-2">
+                    <!--gap es separación de las columnas-->
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Primer Nombre</span>
+                            <input type="text" class="form-control" th:field="*{datosUsuario.primer_nombre}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Segundo Nombre</span>
+                            <input type="text" class="form-control" th:value="${datosUsuario.segundo_nombre}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Primer Apellido</span>
+                            <input type="text" class="form-control" th:value="${datosUsuario.primer_apellido}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Segundo Apellido</span>
+                            <input type="text" class="form-control" th:value="${datosUsuario.segundo_apellido}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">fecha nacimiento</span>
+                            <input type="date" class="form-control" th:value="${datosUsuario.fecha_nacimiento}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Genero</span>
+                            <input type="text" class="form-control" th:value="${genero}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Correo</span>
+                            <input type="text" class="form-control" th:value="${datosUsuario.correo}" disabled/>
+                        </div>
+                    </div>
+                    <div class="column-gap-1 col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Usuario</span>
+                            <input type="text" class="form-control" th:value="${datosUsuario.username}" disabled/>
+                        </div>
+                    </div>
+                </div>
+            <a class="btn btn-primary" th:href="@{/v1/Plataforma/actualizar/{id}(id=${datosUsuario.id_usuario})}" role="button">Actualizar datos</a>
+        </div>
+    </div>
+
+    <!--"Categoria juegos" de la interfaz de paciente o usuario-->
+    <div class="container" th:fragment="categoriaJuegos">
+        <div class="container datosPeronales" style="background: rgba(246, 247, 251, 0.63);margin: 15px;border-radius: 15px; padding: 20px;">
+            <div class="container">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Logica
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/imagenes/Interfaz_juegos/torre_hanoi.PNG" alt="juego Torre Hanoi">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Torre Hanoi</h5>
+                                        <a href="#" class="btn btn-primary">Jugar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Memoria
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/imagenes/juegos/parejas/iconoMemoria.png" alt="juego Torre Hanoi">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Parejas</h5>
+                                        <a href="#" class="btn btn-primary">Jugar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Resolucion
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/imagenes/Interfaz_juegos/iconoTubos.png" alt="juego Torre Hanoi">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Splot liquid</h5>
+                                        <a href="#" class="btn btn-primary">Jugar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

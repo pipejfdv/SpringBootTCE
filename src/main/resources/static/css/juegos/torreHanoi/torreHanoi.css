@@ -1,0 +1,328 @@
+body {
+    background-image: url(/imagenes/FondoRegistro.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+.baseTorre{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 10px;
+    background: black;
+}
+.columna1, .columna2, .columna3{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10px;
+    height: 250px;
+    background: black;
+}
+/* div iniciales para su creación */
+.disco {
+    top: 180px;
+    width: 40px;
+    height: 20px;
+    background-color: rgb(0, 0, 255);
+    position: relative;
+    border-radius: 10px;
+}
+.disco:nth-child(2) {
+    width: 60px;
+    height: 20px;
+    background-color: green;
+}
+.disco:nth-child(3) {
+    width: 80px;
+    height: 20px;
+    background-color: red;
+}
+.disco:nth-child(4) {
+    width: 100px;
+    height: 20px;
+    background-color: orange;
+}
+.disco:nth-child(5) {
+    width: 120px;
+    height: 20px;
+    background-color: purple;
+}
+.disco:nth-child(6) {
+    width: 140px;
+    height: 20px;
+    background-color: rgb(24, 145, 161);
+}
+.disco:nth-child(7) {
+    width: 160px;
+    height: 20px;
+    background-color: rgb(79, 219, 15);
+}
+.disco:nth-child(8) {
+    width: 180px;
+    height: 20px;
+    background-color: rgb(255, 94, 0);
+}
+/* posiciones en juego */
+.disco_Posicion1{
+    top:240px !important;
+}
+.disco_Posicion2{
+    top:200px !important;
+}
+.disco_Posicion3{
+    top:160px !important;
+}
+.disco_Posicion4{
+    top:120px !important;
+}
+.disco_Posicion5{
+    top:80px !important;
+}
+.disco_Posicion6{
+    top:40px !important;
+}
+.disco_Posicion7{
+    top:0px !important;
+}
+.disco_Posicion8{
+    top:-40px !important;
+}
+/* clases con las propiedades */
+.propiedad1{
+    width: 40px;
+    height: 20px;
+    background-color: rgb(0, 0, 255);
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad2{
+    width: 60px;
+    height: 20px;
+    background-color: green;
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad3{
+    width: 80px;
+    height: 20px;
+    background-color: red;
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad4{
+    width: 100px;
+    height: 20px;
+    background-color: orange;
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad5{
+    width: 120px;
+    height: 20px;
+    background-color: purple;
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad6{
+    width: 140px;
+    height: 20px;
+    background-color: rgb(24, 145, 161);
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad7{
+    width: 160px;
+    height: 20px;
+    background-color:rgb(79, 219, 15);
+    position: relative;
+    border-radius: 10px;
+}
+.propiedad8{
+    width: 180px;
+    height: 20px;
+    background-color:rgb(255, 94, 0);
+    position: relative;
+    border-radius: 10px;
+}
+/* ---------------------------- */
+/* Posiciones de los discos iniciales NIVEL 1*/
+.inicial_Nvl1_Ficha1{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl1_Ficha2{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl1_Ficha3{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl1_Ficha4{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 2*/
+.inicial_Nvl2_Ficha1{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha2{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha3{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha4{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl2_Ficha5{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 3*/
+.inicial_Nvl3_Ficha1{
+    top: 140px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha2{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha3{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha4{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha5{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl3_Ficha6{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 4*/
+.inicial_Nvl4_Ficha1{
+    top: 120px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha2{
+    top: 140px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha3{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha4{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha5{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha6{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl4_Ficha7{
+    top: 240px;
+    position: absolute;
+}
+/* Posiciones de los discos iniciales NIVEL 5*/
+.inicial_Nvl5_Ficha1{
+    top: 100px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha2{
+    top: 120px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha3{
+    top: 140px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha4{
+    top: 160px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha5{
+    top: 180px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha6{
+    top: 200px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha7{
+    top: 220px;
+    position: absolute;
+}
+.inicial_Nvl5_Ficha8{
+    top: 240px;
+    position: absolute;
+}
+/*boton de nivel ocultado*/
+#siguiente{
+    display: none;
+}
+/*contenedor para mostrar la victoria*/
+.efecto_Glass{
+    background: #fafafa10;
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    position: absolute;
+    border-radius: 5%;
+    display: none;
+}
+#parrafo strong{
+    font-size: 80px;
+}
+#parrafo{
+    font-size: 20px;
+}
+.alerta{
+    background: #fafafa10;
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    position: absolute;
+    border-radius: 5%;
+    display: none;
+    width: 300px;
+    height: 160px;
+    padding: 20px;
+}
+.alerta img{
+    padding: 5px;
+    position: absolute;
+    left: 265px;
+    bottom: 80%;
+}
+.alerta strong{
+    padding-top: 20px;
+}
+#instrucciones{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    margin-left: 100px;
+    font-size: 21px;
+}
+#instrucciones button{
+    margin-left: auto;
+    margin-right: auto;
+}

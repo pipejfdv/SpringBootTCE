@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/interfazNav.css">
+  <link rel="stylesheet" href="/css/interfazContenido.css">
+  <link rel="stylesheet" href="/css/boostrap/css/bootstrap.min.css">
+  <title>Actualizar Datos</title>
+</head>
+<body>
+
+<main>
+
+  <div class="container-fluid d-flex justify-content-center" style="min-height: 100vh; width: auto">
+    <div class="row w-100">
+      <div class="col-sm-12 col-md-3 col-lg-3 d-flex flex-column justify-content-center align-items-center">
+        <nav th:replace="plantillas/interfazNav :: nav"></nav>
+      </div>
+      <div class="col-sm-12 col-md-9 col-lg-9">
+        <!--"Datos personales" de la interfaz de paciente o usuario-->
+        <section>
+          <div class="container actualizarDatos" style="background: rgba(246, 247, 251, 0.63);margin: 15px;border-radius: 15px; padding: 20px;">
+            <form th:action="@{/v1/Plataforma/guardar}" method="post" th:object="${datosUsuario}">
+              <h1>Datos personales</h1>
+              <input type="hidden" th:field="*{id_usuario}"/>
+              <div class="row mb-2">
+                <!--gap es separación de las columnas-->
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Primer Nombre</span>
+                    <input type="text" class="form-control" name="primer_nombre" th:field="*{primer_nombre}" />
+                    <span class="error" th:if="${#fields.hasErrors('primer_nombre')}" th:errors="*{primer_nombre}" ></span>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Segundo Nombre</span>
+                    <input type="text" class="form-control" th:field="*{segundo_nombre}"/>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Primer Apellido</span>
+                    <input type="text" class="form-control" name="primer_apellido" th:field="*{primer_apellido}" />
+                    <span class="error" th:if="${#fields.hasErrors('primer_apellido')}" th:errors="*{primer_apellido}"></span>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Segundo Apellido</span>
+                    <input type="text" class="form-control" th:field="*{segundo_apellido}" />
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">fecha nacimiento</span>
+                    <input type="date" class="form-control" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" />
+                    <span class="error" th:if="${#fields.hasErrors('fecha_nacimiento')}" th:errors="*{fecha_nacimiento}"></span>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <select class="form-select" th:field="*{genero_id}" name="genero">
+                    <!--Se crea una lista generos donde la variable genero recorre el arreglo -->
+                    <option th:each="genero : ${generos}" th:value="${genero.id_genero}" th:text="${genero.genero}"></option>
+                  </select>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Correo</span>
+                    <input type="text" class="form-control" name="correo" th:field="*{correo}" />
+                    <span class="error" th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></span>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Usuario</span>
+                    <input type="text" class="form-control" name="username" th:field="*{username}" />
+                    <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                  </div>
+                </div>
+                <div class="column-gap-1 col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Contraseña</span>
+                    <input type="password" class="form-control" name="password"/>
+                    <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">Guardar</button>
+              <a class="btn btn-danger" th:href="@{/v1/Plataforma/home}">Cancelar</a>
+            </form>
+          </div>
+          <!--<div th:include="plantillas/interfazContenidoPaciente :: formDatosPersonales"
+           th:with="datosUsuario=${datosUsuario}"></div>-->
+        </section>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="/js/animacionesNavInterfaz.js"></script>
+<script src="/js/boostrapJs/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

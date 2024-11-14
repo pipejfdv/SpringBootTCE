@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Terapeuta</title>
+</head>
+<body>
+
+<div class="cotainer" th:fragment="inicioTerapeuta">
+  <div class="content" style="background: rgba(246, 247, 251, 0.63); border-radius: 15px;">
+      <h1 class="m-2">Articulos de tu interés</h1>
+
+        <div id="carouselExampleCaptions" class="carousel slide full-width-carousel m-2">
+            <div class="carousel-inner">
+                <!-- Itera sobre la lista de noticias y muestra cada noticia -->
+                <div class="carousel-item" th:each="noticia, iterStat : ${listaNoticias}" th:classappend="${iterStat.index == 0 ? 'active' : ''}">
+
+                    <div class="card mx-auto card-centered" style="width: 50%; max-width: 600px;">
+
+                        <img th:src="${noticia.image}" class="card-img-top" alt="imagen de noticia">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${noticia.title}">Título</h5>
+
+                            <p><strong>Fuente:</strong> <span th:text="${noticia.source}">Fuente</span></p>
+                            <p><strong>País:</strong> <span th:text="${noticia.country}">País</span></p>
+                            <!--el rel evita que tenga acceso a ventana actual -->
+                            <a th:href="${noticia.url}" rel="noopener noreferrer" target="_blank" class="btn btn-primary">Leer más</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/registro.css">
+    <link rel="icon" href="/imagenes/LogoLogin.ico">
+    <!--boostrap-->
+    <link rel="stylesheet" href="/css/boostrap/css/bootstrap.min.css">
+    <title>Funny Mind</title>
+</head>
+<body>
+
+<header>
+    <div>
+        <nav th:replace="plantillas/publicNav :: navegadorLogin"></nav>
+    </div>
+
+</header>
+<main>
+    <div class="Contenedor_Registro overflow-auto">
+        <div class="bloque_formulario">
+            <!--Estado de registro para el usuario-->
+            <div class="alert alert-danger text-center" th:if="${estado}">
+                <p th:text="${estado}"></p>
+            </div>
+            <div class="boton_formulario">
+                <div id="elegir"></div>
+                <button type="button" class="desliz-btn1" onclick="Login()" id="control1">Ingresar</button>
+                <button type="button" class="desliz-btn2" onclick="Registrarme()" id="control2">Registrarme</button>
+            </div>
+            <div class="conten_Form">
+                <!--Esto representa la acción de security y que identifique el login "th:action="@{/FunnyMind/login}" -->
+                <form th:action="@{/FunnyMind/login}" method="post" class="formulario" id="Login" th:object="${usuario}">
+                    <div class="Logo">
+                        <img id="Icono" src="../imagenes/Logo.PNG" width="80" height="80"/>
+                    </div>
+                    <!--alerta validar credenciales-->
+                    <div class="alert alert-danger text-center" th:if="${param.error}">
+                        Invalido usuario o contraseña
+                    </div>
+                    <!--Es necesario que los campos de usuario y contraseña tengan esos nombres, así los maneja Spring -->
+                    <input type="text" name="username" th:field="*{username}" placeholder="Usuario" class="Users" >
+                    <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
+                    <input type="password" name="password" th:field="*{password}" placeholder="Contraseña" class="Users" >
+                    <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>
+                    <button type="submit" class="validar" name="login">Iniciar Sesión</button>
+                </form>
+                <!--permte ejecutar el controlador para el evento de registro de usuario-->
+                <form th:action="@{/FunnyMind/registrar}" method="post" class="formulario" id="Registrarme" th:object="${usuario}">
+                    <input type="text" name="primer_nombre" th:field="*{primer_nombre}" placeholder="Primer nombre" class="Users" >
+                    <!-- fields detecta el error, que el error se validara en el campo errors "primer_nombre" -->
+                    <span class="error" th:if="${#fields.hasErrors('primer_nombre')}" th:errors="*{primer_nombre}" ></span>
+                    <input type="text" name="segundo_nombre" th:field="*{segundo_nombre}" placeholder="Segundo nombre" class="Users" >
+                    <input type="text" name="primer_apellido" th:field="*{primer_apellido}" placeholder="Primer apellido" class="Users" >
+                    <!-- validar campo "primer_apellido" -->
+                    <span class="error" th:if="${#fields.hasErrors('primer_apellido')}" th:errors="*{primer_apellido}"></span>
+                    <input type="text" name="segundo_apellido" th:field="*{segundo_apellido}" placeholder="Segundo apellido" class="Users" >
+                    <!--Se agrega validación -->
+                    <input type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" placeholder="dd/MM/yyyy" class="Users" >
+                    <span class="error" th:if="${#fields.hasErrors('fecha_nacimiento')}" th:errors="*{fecha_nacimiento}"></span>
+                    <br>
+                    <label>Genero</label>
+                    <!--Se asigna el id de genero en el registro del usuario -->
+                    <select th:field="*{genero_id}" name="genero">
+                        <!--Se crea una lista generos donde la variable genero recorre el arreglo -->
+                        <option th:each="genero : ${generos}" th:value="${genero.id_genero}" th:text="${genero.genero}"></option>
+                    </select>
+                    <input type="text" name="correo" th:field="*{correo}" placeholder="Correo" class="Users" >
+                    <span class="error" th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></span>
+                    <input type="text" name="username" th:field="*{username}" placeholder="Usuario" class="Users" >
+                    <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                    <input type="password" name="password" th:field="*{password}" placeholder="Asignar contraseña" class="Users">
+                    <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault" required>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    <a data-bs-toggle="modal" data-bs-target="#TyC">Acepto los términos y condiciones.</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- contenido de terminos y condicones -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="TyC" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Términos y Condiciones</h1>
+                                    </div>
+                                    <div class="modal-body justificar">
+                                        <p>Bienvenido a Funny Mind. Al acceder y utilizar nuestro sitio web, aceptas cumplir con los siguientes términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestro sitio web.</p><br>
+                                        <p>El contenido de las páginas de este sitio web es para tu información y uso general. Está sujeto a cambios sin previo aviso.</p><br>
+                                        <p>Nos comprometemos a proteger tu privacidad. Consulta nuestra <strong>Política de Privacidad</strong> para obtener más información sobre cómo recopilamos y utilizamos tus datos personales.</p><br>
+                                        <p>Todo el contenido incluido en este sitio web, como texto, gráficos, logotipos, imágenes y software, es propiedad de Funny Mind o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual.</p><br>
+                                        <p>El uso de cualquier información o material en este sitio web es bajo tu propio riesgo, por lo cual no seremos responsables. Será tu responsabilidad asegurarte de que cualquier producto, servicio o información disponible a través de este sitio web cumpla con tus requisitos específicos.</p><br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entiendo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" name="registrarse" class="validar mb-3">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+    <!-- Scrip que se puede asignar al archivo JS  -->
+    <script src="/js/animaciones.js"></script>
+    <script src="/js/boostrapJs/js/bootstrap.min.js"></script>
+</body>
+</html>

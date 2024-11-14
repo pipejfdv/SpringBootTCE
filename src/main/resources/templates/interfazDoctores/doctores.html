@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/interfazNav.css">
+    <link rel="stylesheet" href="/css/interfazContenido.css">
+    <link rel="stylesheet" href="/css/boostrap/css/bootstrap.min.css">
+    <title>Usuario</title>
+</head>
+<body>
+
+<main>
+
+    <div class="container-fluid d-flex justify-content-center" style="min-height: 100vh; width: auto">
+        <div class="row w-100">
+            <div class="col-sm-12 col-md-3 col-lg-3 d-flex flex-column justify-content-center align-items-center">
+                <nav th:replace="plantillas/interfazNav :: nav"></nav>
+            </div>
+            <div class="col-sm-12 col-md-9 col-lg-9">
+                <section>
+                    <div th:include="plantillas/interfazContenidoTeraputa :: inicioTerapeuta"></div>
+                </section>
+
+                <!--"Datos personales" de la interfaz de paciente o usuario-->
+                <section>
+                    <div class="contenedorDatos" style="display: none">
+                        <!--<div th:include="plantillas/interfazContenidoPaciente :: datosPersonales"></div>-->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/js/animacionesNavInterfaz.js"></script>
+<script src="/js/boostrapJs/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
